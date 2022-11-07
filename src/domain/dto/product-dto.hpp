@@ -1,10 +1,10 @@
-#ifndef ProductModel_h
-#define ProductModel_h
-#include "domain/dto/product-dto.hpp"
+#ifndef ProductDto_h
+#define ProductDto_h
 #include <string>
+#include <vector>
 using namespace std;
 
-class ProductModel
+class ProductDto
 {
 private:
     string _barCode;
@@ -15,7 +15,7 @@ private:
     int _unitPrice;
 
 public:
-    ProductModel(ProductDto *productDto);
+    ProductDto(vector<char> data);
     string getBarCode() const { return this->_barCode; };
     string getDescription() const { return this->_description; };
     string getSellAmount() const { return this->_sellAmount; };

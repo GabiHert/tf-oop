@@ -1,10 +1,10 @@
-#ifndef DiscountModel_h
-#define DiscountModel_h
+#ifndef DiscountDto_h
+#define DiscountDto_h
 #include <string>
-#include "domain/dto/discount-dto.hpp"
+#include <vector>
 using namespace std;
 
-class DiscountModel
+class DiscountDto
 {
 private:
     string _field1;
@@ -15,7 +15,7 @@ private:
     float _field6;
 
 public:
-    DiscountModel(DiscountDto *discountDto);
+    DiscountDto(vector<char> data);
     string getField1() const { return this->_field1; }
     float getField2() const { return this->_field2; }
     int getField3() const { return this->_field3; }
