@@ -15,7 +15,7 @@ private:
     float _field6;
 
 public:
-    DiscountDto(vector<char> data);
+    DiscountDto(string field1, string field2, string field3, string field4, string field5, string field6);
     string getField1() const { return this->_field1; }
     float getField2() const { return this->_field2; }
     int getField3() const { return this->_field3; }

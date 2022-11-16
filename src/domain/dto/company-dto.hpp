@@ -14,7 +14,7 @@ private:
     string _address;
 
 public:
-    CompanyDto(vector<char> data);
+    CompanyDto(string name, string cnpj, string stateSub, string address);
     string getName() const { return _name; }
     string getCnpj() const { return _cnpj; }
     string getStateSub() const { return _stateSub; }

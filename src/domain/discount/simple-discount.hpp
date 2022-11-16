@@ -1,8 +1,9 @@
 #ifndef SimpleDiscount_h
 #define SimpleDiscount_h
 
-#include "domain/model/discount-model.hpp"
-class SimpleDiscount
+#include "../model/discount-model.hpp"
+#include "./discount.hpp"
+class SimpleDiscount : public Discount
 {
 private:
     string _barCode;

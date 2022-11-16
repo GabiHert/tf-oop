@@ -1,8 +1,8 @@
 #ifndef TakeMPayNDiscount_h
 #define TakeMPayNDiscount_h
-#include "domain/model/discount-model.hpp"
-
-class TakeMPayNDiscount
+#include "../model/discount-model.hpp"
+#include "./discount.hpp"
+class TakeMPayNDiscount : public Discount
 {
 private:
     string _barCode;

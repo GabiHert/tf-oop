@@ -1,5 +1,5 @@
 #include <string>
-#include "domain/dto/company-dto.hpp"
+#include "../../domain/dto/company-dto.hpp"
 using namespace std;
 
 #ifndef company_model_h

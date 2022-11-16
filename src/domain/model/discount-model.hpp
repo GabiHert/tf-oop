@@ -1,7 +1,7 @@
 #ifndef DiscountModel_h
 #define DiscountModel_h
 #include <string>
-#include "domain/dto/discount-dto.hpp"
+#include "../../domain/dto/discount-dto.hpp"
 using namespace std;
 
 class DiscountModel

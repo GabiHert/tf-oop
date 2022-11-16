@@ -15,7 +15,7 @@ private:
     int _unitPrice;
 
 public:
-    ProductDto(vector<char> data);
+    ProductDto(string barCode, string description, string sellAmount,string measurementUnit, string amount,string price);
     string getBarCode() const { return this->_barCode; };
     string getDescription() const { return this->_description; };
     string getSellAmount() const { return this->_sellAmount; };

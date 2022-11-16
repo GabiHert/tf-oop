@@ -1,6 +1,6 @@
 #ifndef ProductModel_h
 #define ProductModel_h
-#include "domain/dto/product-dto.hpp"
+#include "../../domain/dto/product-dto.hpp"
 #include <string>
 using namespace std;
 

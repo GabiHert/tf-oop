@@ -17,7 +17,7 @@ private:
     string _cep;
 
 public:
-    AddressDto(vector<char> data);
+    AddressDto(string publicPlace, string number, string complement, string district, string city, string federationUnit, string cep);
 
     string getPublicPlace() const { return _publicPlace; }
 

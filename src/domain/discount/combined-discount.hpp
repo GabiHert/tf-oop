@@ -1,8 +1,9 @@
 #ifndef CombinedDiscount_h
 #define CombinedDiscount_h
-#include "domain/model/discount-model.hpp"
+#include "../model/discount-model.hpp"
+#include "./discount.hpp"
 
-class CombinedDiscount
+class CombinedDiscount : public Discount
 {
 private:
     string _barCodeA;
