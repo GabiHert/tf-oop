@@ -9,13 +9,13 @@ class BuyRequestDto
 {
 private:
     string _barCode;
-    string _amount;
+    float _amount;
 
 public:
     BuyRequestDto();
     BuyRequestDto(string barCode, string amount);
     string getBarCode() const { return _barCode; }
-    string getAmount() const { return _amount; }
+    float getAmount() const { return _amount; }
 };
 
 #endif

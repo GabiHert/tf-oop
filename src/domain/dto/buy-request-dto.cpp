@@ -2,5 +2,5 @@
 BuyRequestDto::BuyRequestDto(string barCode, string amount)
 {
     this->_barCode = barCode;
-    this->_amount = amount;
+    this->_amount = stof(amount);
 }

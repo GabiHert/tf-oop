@@ -6,13 +6,13 @@ class TakeMPayNDiscount : public Discount
 {
 private:
     string _barCode;
-    int _amountTobeTook;
+    int _amountToBeTook;
     int _amountToBePaid;
 
 public:
-    TakeMPayNDiscount(DiscountModel discountModel);
+    TakeMPayNDiscount(DiscountModel *discountModel);
     string getBarCode() const { return _barCode; }
-    int getAmountTobeTook() const { return _amountTobeTook; }
+    int getAmountToBeTook() const { return _amountToBeTook; }
     int getAmountToBePaid() const { return _amountToBePaid; }
 };
 

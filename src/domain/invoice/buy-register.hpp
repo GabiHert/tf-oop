@@ -18,13 +18,13 @@ private:
 public:
     BuyRegister();
     BuyRegister(ProductModel *productModel);
-    string getBarCode();
-    string getDescription();
-    float getUnitPrice();
-    string getMeasurementUnit();
-    float getAmount();
-    float getDiscount();
-    float getPrice();
+    string getBarCode() const { return this->_barCode; };
+    string getDescription() const { return this->_description; };
+    float getUnitPrice() const { return this->_unitPrice; };
+    string getMeasurementUnit() const { return this->_measurementUnit; };
+    float getAmount() const { return this->_amount; };
+    float getDiscount() const { return this->_discount; }
+    float getPrice() const { return this->_price; };
 
     void addDiscount(float discount);
 };

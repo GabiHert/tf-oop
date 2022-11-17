@@ -23,13 +23,16 @@ InvoiceEmitterController::InvoiceEmitterController(CompanyDto *companyDto, vecto
     }
 };
 
-InvoiceModel InvoiceEmitterController::Execute()
+Invoice *InvoiceEmitterController::Execute()
 {
-    BuyRegister *buyRegisters[this->buyRequestsModel.size()];
+    vector<BuyRegister *> buyRegisters;
 
     for (int i = 0; i < this->buyRequestsModel.size(); i++)
     {
-        RegisterBuyUseCase::Execute(buyRegisters[i], this->buyRequestsModel.at(i), this->productsModel);
+        buyRegisters.push_back(new BuyRegister());
+        RegisterBuyUseCase::Execute(buyRegisters[i], this->buyRequestsModel[i], this->productsModel);
         ApplyDiscountUseCase::Execute(buyRegisters[i], this->discountsModel);
     }
+
+    return new Invoice(buyRegisters);
 };

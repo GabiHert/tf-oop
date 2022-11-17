@@ -10,7 +10,7 @@ private:
     float _discount;
 
 public:
-    SimpleDiscount(DiscountModel discountModel);
+    SimpleDiscount(DiscountModel *discountModel);
     string getBarCode() const { return _barCode; }
     float getDiscount() const { return _discount; }
 };

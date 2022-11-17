@@ -13,7 +13,7 @@ private:
     DiscountFactory();
 
 public:
-    static Discount GetInstance(DiscountModel *discountModel);
+    static Discount *GetInstance(DiscountModel *discountModel);
 };
 
 #endif

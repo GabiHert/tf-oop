@@ -1,5 +1,5 @@
 #include <string>
-#include "domain/dto/address-dto.hpp"
+#include "../dto/address-dto.hpp"
 using namespace std;
 
 #ifndef address_model_h

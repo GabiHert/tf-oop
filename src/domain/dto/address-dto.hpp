@@ -15,10 +15,12 @@ private:
     string _city;
     string _federationUnit;
     string _cep;
+    string _phoneNumber;
 
 public:
-    AddressDto(string publicPlace, string number, string complement, string district, string city, string federationUnit, string cep);
+    AddressDto(string publicPlace, string number, string complement, string district, string city, string federationUnit, string cep, string phoneNumber);
 
+    string getPhoneNumber() const { return _phoneNumber; }
     string getPublicPlace() const { return _publicPlace; }
 
     string getNumber() const { return _number; }

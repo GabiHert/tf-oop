@@ -13,10 +13,10 @@ private:
     int _discountPercentage;
 
 public:
-    CombinedDiscount(DiscountModel discountModel);
+    CombinedDiscount(DiscountModel *discountModel);
     string getBarCodeA() const { return _barCodeA; }
     int getAmountToBeTook() const { return _amountToBeTook; }
-    int _amountToBeApplied() const { return _amountToBeApplied; }
+    int getAmountToBeApplied() const { return _amountToBeApplied; }
     string getBarCodeB() const { return _barCodeB; }
     int getDiscountPercentage() const { return _discountPercentage; }
 };

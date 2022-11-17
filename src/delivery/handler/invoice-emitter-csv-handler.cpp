@@ -12,7 +12,7 @@
 #include "../../domain/dto/discount-dto.hpp"
 #include "../../utils/utils.hpp"
 #include "../../controller/invoice-emitter-controller.hpp"
-
+#include "../../domain/dto/address-dto.hpp"
 void InvoiceEmitterCsv::Execute(string buyRequestsDataFilePath, string companyDataFilePath, string productDataFilePath, string discountDataFilePath)
 {
     ifstream companyDataFile, productDataFile, discountDataFile, buyRequestsDataFile;
@@ -66,7 +66,9 @@ void InvoiceEmitterCsv::Execute(string buyRequestsDataFilePath, string companyDa
     }
 
     vector<string> company = splitStr(companyData.at(0), ";");
-    CompanyDto *companyDto = new CompanyDto(company[0], company[1], company[2], company[3]);
+    vector<string> address = splitStr(company[3], ":");
+    AddressDto*addressDto = new AddressDto(address[0], address[1], address[2], address[3], address[4], address[5], address[6], address[7]);
+    CompanyDto *companyDto = new CompanyDto(company[0], company[1], company[2],addressDto);
 
     vector<ProductDto *> productsDto;
     for (int i = 0; i < productData.size(); i++)
@@ -84,5 +86,5 @@ void InvoiceEmitterCsv::Execute(string buyRequestsDataFilePath, string companyDa
 
     InvoiceEmitterController invoiceEmitterController = InvoiceEmitterController(companyDto, productsDto, buyRequestsDto, discountsDto);
 
-    InvoiceModel invoiceModel = invoiceEmitterController.Execute();
+    Invoice * invoice = invoiceEmitterController.Execute();
 }

@@ -1,5 +1,6 @@
 #include <string>
 #include <vector>
+#include "./address-dto.hpp"
 using namespace std;
 
 #ifndef company_sto_h
@@ -11,14 +12,14 @@ private:
     string _name;
     string _cnpj;
     string _stateSub;
-    string _address;
+    AddressDto *_addressDto;
 
 public:
-    CompanyDto(string name, string cnpj, string stateSub, string address);
+    CompanyDto(string name, string cnpj, string stateSub, AddressDto *addressDto);
     string getName() const { return _name; }
     string getCnpj() const { return _cnpj; }
     string getStateSub() const { return _stateSub; }
-    string getAddress() const { return _address; }
+    AddressDto *getAddressDto() const { return _addressDto; }
 };
 
 #endif
