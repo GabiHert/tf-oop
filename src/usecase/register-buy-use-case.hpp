@@ -12,7 +12,7 @@ private:
     RegisterBuyUseCase();
 
 public:
-    static void Execute(BuyRegister *buyRegister, BuyRequestModel *buyRequestsModel, vector<ProductModel *> productsModel);
+    static void Execute(vector<BuyRegister *> buyRegisters, BuyRequestModel *buyRequestsModel, vector<ProductModel *> productsModel);
 };
 
 #endif

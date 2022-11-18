@@ -1,4 +1,4 @@
-#include "./address-dto.hpp"
+#include "./address-model.hpp"
 AddressModel::AddressModel(AddressDto *addressDto)
 {
     this->_publicPlace = addressDto->getPublicPlace();
@@ -8,4 +8,5 @@ AddressModel::AddressModel(AddressDto *addressDto)
     this->_city = addressDto->getCity();
     this->_federationUnit = addressDto->getFederationUnit();
     this->_cep = addressDto->getCep();
+    this->_phoneNumber = addressDto->getPhoneNumber();
 }

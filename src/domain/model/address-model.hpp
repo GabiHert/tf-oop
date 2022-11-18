@@ -15,6 +15,7 @@ private:
     string _city;
     string _federationUnit;
     string _cep;
+    string _phoneNumber;
 
 public:
     AddressModel(AddressDto *addressDto);
@@ -32,6 +33,8 @@ public:
     string getFederationUnit() const { return _federationUnit; }
 
     string getCep() const { return _cep; }
+
+    string getPhoneNumber() const { return _phoneNumber; }
 };
 
 #endif

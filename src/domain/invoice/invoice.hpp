@@ -9,12 +9,14 @@ class Invoice
 private:
     vector<BuyRegister *> _buyRegisters;
     CompanyModel *_companyModel;
+    float _totalPrice;
 
 public:
     Invoice(){};
     Invoice(vector<BuyRegister *> buyRegisters, CompanyModel *companyModel);
     void addRegister(BuyRegister *buyRegister);
     string toString();
+    float getTotalPrice() const { return this->_totalPrice; }
 };
 
 #endif

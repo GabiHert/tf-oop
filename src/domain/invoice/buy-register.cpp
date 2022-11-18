@@ -15,3 +15,7 @@ void BuyRegister::addDiscount(float discount)
 {
     this->_discount = discount > 0 ? this->_discount - discount : this->_discount + discount;
 }
+
+void BuyRegister::addUnit() { this->_amount++; }
+
+void BuyRegister::removeUnit() { this->_amount--; }

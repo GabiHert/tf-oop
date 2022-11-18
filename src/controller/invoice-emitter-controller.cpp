@@ -5,21 +5,21 @@
 
 InvoiceEmitterController::InvoiceEmitterController(CompanyDto *companyDto, vector<ProductDto *> productsDto, vector<BuyRequestDto *> buyRequestsDto, vector<DiscountDto *> discountsDto)
 {
-    this->companyModel = new CompanyModel(companyDto);
+    this->_companyModel = new CompanyModel(companyDto);
 
     for (int i = 0; i < productsDto.size(); i++)
     {
-        this->productsModel.push_back(new ProductModel(productsDto[i]));
+        this->_productsModel.push_back(new ProductModel(productsDto[i]));
     }
 
     for (int i = 0; i < buyRequestsDto.size(); i++)
     {
-        this->buyRequestsModel.push_back(new BuyRequestModel(buyRequestsDto[i]));
+        this->_buyRequestsModel.push_back(new BuyRequestModel(buyRequestsDto[i]));
     }
 
     for (int i = 0; i < discountsDto.size(); i++)
     {
-        this->discountsModel.push_back(new DiscountModel(discountsDto[i]));
+        this->_discountsModel.push_back(new DiscountModel(discountsDto[i]));
     }
 };
 
@@ -27,12 +27,15 @@ Invoice *InvoiceEmitterController::Execute()
 {
     vector<BuyRegister *> buyRegisters;
 
-    for (int i = 0; i < this->buyRequestsModel.size(); i++)
+    for (int i = 0; i < this->_buyRequestsModel.size(); i++)
     {
-        buyRegisters.push_back(new BuyRegister());
-        RegisterBuyUseCase::Execute(buyRegisters[i], this->buyRequestsModel[i], this->productsModel);
-        ApplyDiscountUseCase::Execute(buyRegisters[i], this->discountsModel);
+        RegisterBuyUseCase::Execute(buyRegisters, this->_buyRequestsModel[i], this->_productsModel);
     }
 
-    return new Invoice(buyRegisters);
+    for (int i = 0; i < buyRegisters.size(); i++)
+    {
+        ApplyDiscountUseCase::Execute(buyRegisters, i, this->_discountsModel);
+    }
+
+    return new Invoice(buyRegisters, this->_companyModel);
 };

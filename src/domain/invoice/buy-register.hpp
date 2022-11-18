@@ -23,6 +23,8 @@ public:
     float getUnitPrice() const { return this->_unitPrice; };
     string getMeasurementUnit() const { return this->_measurementUnit; };
     float getAmount() const { return this->_amount; };
+    void addUnit();
+    void removeUnit();
     float getDiscount() const { return this->_discount; }
     float getPrice() const { return this->_price; };
 

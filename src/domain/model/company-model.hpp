@@ -1,5 +1,6 @@
 #include <string>
 #include "../../domain/dto/company-dto.hpp"
+#include "./address-model.hpp"
 using namespace std;
 
 #ifndef company_model_h
@@ -11,14 +12,14 @@ private:
     string _name;
     string _cnpj;
     string _stateSub;
-    string _address;
+    AddressModel *_addressModel;
 
 public:
     CompanyModel(CompanyDto *companyDto);
     string getName() const { return _name; }
     string getCnpj() const { return _cnpj; }
     string getStateSub() const { return _stateSub; }
-    string getAddress() const { return _address; }
+    AddressModel *getAddressModel() const { return _addressModel; }
 };
 
 #endif

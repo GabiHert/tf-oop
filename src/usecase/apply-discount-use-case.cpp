@@ -4,17 +4,17 @@
 #include "../domain/discount/discount.hpp"
 #include "../domain/factory/discount-factory.hpp"
 
-void ApplyDiscountUseCase::Execute(BuyRegister *buyRegister, vector<DiscountModel *> discountsModel)
+void ApplyDiscountUseCase::Execute(vector<BuyRegister *> buyRegisters, int index, vector<DiscountModel *> discountsModel)
 {
-    Discount discount;
+    Discount *discount;
 
     for (int i = 0; i < discountsModel.size(); i++)
     {
-        discount = DiscountFactory::GetInstance(discountsModel[i]);
+        discount = DiscountFactory::GetInstance(discountsModel[i], buyRegisters);
 
-        if (discount.getBarCode() == buyRegister->getBarCode())
+        if (discount->getBarCode() == buyRegisters[index]->getBarCode())
         {
-            buyRegister->addDiscount(discount.getDiscountValue());
+            buyRegisters[index]->addDiscount(discount->getDiscountValue());
         }
     }
 }

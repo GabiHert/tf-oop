@@ -10,7 +10,7 @@ private:
     ApplyDiscountUseCase();
 
 public:
-    static void Execute(BuyRegister *buyRegister, vector<DiscountModel *> discountModel);
+    static void Execute(vector<BuyRegister *> buyRegisters, int index, vector<DiscountModel *> discountModel);
 };
 
 #endif

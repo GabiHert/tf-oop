@@ -14,10 +14,10 @@
 class InvoiceEmitterController
 {
 private:
-    CompanyModel *companyModel;
-    vector<ProductModel *> productsModel;
-    vector<BuyRequestModel *> buyRequestsModel;
-    vector<DiscountModel *> discountsModel;
+    CompanyModel *_companyModel;
+    vector<ProductModel *> _productsModel;
+    vector<BuyRequestModel *> _buyRequestsModel;
+    vector<DiscountModel *> _discountsModel;
 
 public:
     InvoiceEmitterController(CompanyDto *companyDto, vector<ProductDto *> productsDto, vector<BuyRequestDto *> buyRequestsDto, vector<DiscountDto *> discountsDto);

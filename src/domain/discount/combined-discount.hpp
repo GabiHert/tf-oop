@@ -2,6 +2,9 @@
 #define CombinedDiscount_h
 #include "../model/discount-model.hpp"
 #include "./discount.hpp"
+#include "../model/product-model.hpp"
+#include "../invoice/buy-register.hpp"
+#include <vector>
 
 class CombinedDiscount : public Discount
 {
@@ -13,7 +16,7 @@ private:
     int _discountPercentage;
 
 public:
-    CombinedDiscount(DiscountModel *discountModel);
+    CombinedDiscount(DiscountModel *discountModel, vector<BuyRegister *> buyRegisters);
     string getBarCodeA() const { return _barCodeA; }
     int getAmountToBeTook() const { return _amountToBeTook; }
     int getAmountToBeApplied() const { return _amountToBeApplied; }
