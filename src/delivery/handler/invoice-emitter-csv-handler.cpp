@@ -13,8 +13,11 @@
 #include "../../utils/utils.hpp"
 #include "../../controller/invoice-emitter-controller.hpp"
 #include "../../domain/dto/address-dto.hpp"
-void InvoiceEmitterCsv::Execute(string buyRequestsDataFilePath, string companyDataFilePath, string productDataFilePath, string discountDataFilePath)
+using namespace std;
+
+void InvoiceEmitterCsv::execute(string buyRequestsDataFilePath, string companyDataFilePath, string productDataFilePath, string discountDataFilePath)
 {
+    cout << "InvoiceEmitterCsv::Execute - Process started" << endl;
     ifstream companyDataFile, productDataFile, discountDataFile, buyRequestsDataFile;
     companyDataFile.open(companyDataFilePath, ios::in);
     productDataFile.open(productDataFilePath, ios::in);
@@ -34,6 +37,8 @@ void InvoiceEmitterCsv::Execute(string buyRequestsDataFilePath, string companyDa
         getline(companyDataFile, aux);
     } while (aux != "");
 
+    cout << "InvoiceEmitterCsv::Execute - company data file read" << endl;
+
     if (!productDataFile.is_open())
         return;
     do
@@ -41,6 +46,8 @@ void InvoiceEmitterCsv::Execute(string buyRequestsDataFilePath, string companyDa
         productData.push_back(aux);
         getline(productDataFile, aux);
     } while (aux != "");
+
+    cout << "InvoiceEmitterCsv::Execute - product data file read" << endl;
 
     if (!discountDataFile.is_open())
         return;
@@ -50,6 +57,8 @@ void InvoiceEmitterCsv::Execute(string buyRequestsDataFilePath, string companyDa
         getline(discountDataFile, aux);
     } while (aux != "");
 
+    cout << "InvoiceEmitterCsv::Execute - discount data file read" << endl;
+
     if (!buyRequestsDataFile.is_open())
         return;
     do
@@ -58,21 +67,27 @@ void InvoiceEmitterCsv::Execute(string buyRequestsDataFilePath, string companyDa
         getline(buyRequestsDataFile, aux);
     } while (aux != "");
 
+    cout << "InvoiceEmitterCsv::Execute - buy requests data file read" << endl;
+
     vector<BuyRequestDto *> buyRequestsDto;
     for (int i = 0; i < buyRequestsData.size(); i++)
     {
+        cout << "InvoiceEmitterCsv::Execute - buyRequestData" << i << buyRequestsData.at(i) << endl;
+
         vector<string> buyRequests = splitStr(buyRequestsData.at(i), ";");
         buyRequestsDto.push_back(new BuyRequestDto(buyRequests.at(0), buyRequests.at(1)));
     }
 
     vector<string> company = splitStr(companyData.at(0), ";");
     vector<string> address = splitStr(company[3], ":");
-    AddressDto*addressDto = new AddressDto(address[0], address[1], address[2], address[3], address[4], address[5], address[6], address[7]);
-    CompanyDto *companyDto = new CompanyDto(company[0], company[1], company[2],addressDto);
+    AddressDto *addressDto = new AddressDto(address[0], address[1], address[2], address[3], address[4], address[5], address[6], address[7]);
+    CompanyDto *companyDto = new CompanyDto(company[0], company[1], company[2], addressDto);
 
     vector<ProductDto *> productsDto;
     for (int i = 0; i < productData.size(); i++)
     {
+        cout << "InvoiceEmitterCsv::Execute - productData" << i << productData.at(i) << endl;
+
         vector<string> productsData = splitStr(productData.at(i), ";");
         productsDto.push_back(new ProductDto(productsData.at(0), productsData.at(1), productsData.at(2), productsData.at(3), productsData.at(4), productsData.at(5)));
     }
@@ -80,11 +95,15 @@ void InvoiceEmitterCsv::Execute(string buyRequestsDataFilePath, string companyDa
     vector<DiscountDto *> discountsDto;
     for (int i = 0; i < discountData.size(); i++)
     {
+        cout << "InvoiceEmitterCsv::Execute - discountData" << i << discountData.at(i) << endl;
+
         vector<string> discount = splitStr(discountData.at(i), ";");
         DiscountDto *discountDto = new DiscountDto(discount[0], discount[1], discount[2], discount[3], discount[4], discount[5]);
     }
 
     InvoiceEmitterController invoiceEmitterController = InvoiceEmitterController(companyDto, productsDto, buyRequestsDto, discountsDto);
 
-    Invoice * invoice = invoiceEmitterController.Execute();
+    Invoice *invoice = invoiceEmitterController.Execute();
+
+    cout << "InvoiceEmitterCsv::Execute - Process finished" << endl;
 }

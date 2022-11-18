@@ -13,9 +13,9 @@ private:
 
 public:
     TakeMPayNDiscount(DiscountModel *discountModel, vector<BuyRegister *> buyRegisters);
-    string getBarCode() const { return _barCode; }
-    int getAmountToBeTook() const { return _amountToBeTook; }
-    int getAmountToBePaid() const { return _amountToBePaid; }
+    string getBarCode() { return _barCode; }
+    int getAmountToBeTook() { return _amountToBeTook; }
+    int getAmountToBePaid() { return _amountToBePaid; }
 };
 
 #endif

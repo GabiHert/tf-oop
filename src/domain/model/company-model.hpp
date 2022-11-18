@@ -15,11 +15,12 @@ private:
     AddressModel *_addressModel;
 
 public:
+    CompanyModel(){};
     CompanyModel(CompanyDto *companyDto);
-    string getName() const { return _name; }
-    string getCnpj() const { return _cnpj; }
-    string getStateSub() const { return _stateSub; }
-    AddressModel *getAddressModel() const { return _addressModel; }
+    string getName() { return _name; }
+    string getCnpj() { return _cnpj; }
+    string getStateSub() { return _stateSub; }
+    AddressModel *getAddressModel() { return _addressModel; }
 };
 
 #endif

@@ -5,8 +5,11 @@ using namespace std;
 
 class InvoiceEmitterCsv
 {
+private:
 public:
-    static void Execute(string buyRequestsDataFilePath, string companyDataFilePath, string productDataFilePath, string discountDataFilePath);
+    InvoiceEmitterCsv(){};
+
+    void execute(string buyRequestsDataFilePath, string companyDataFilePath, string productDataFilePath, string discountDataFilePath);
 };
 
 #endif

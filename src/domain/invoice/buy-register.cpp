@@ -1,8 +1,5 @@
 #include "./buy-register.hpp"
 
-BuyRegister::BuyRegister()
-{
-}
 BuyRegister::BuyRegister(ProductModel *productModel)
 {
     this->_amount = productModel->getAmount();

@@ -16,7 +16,7 @@ public:
     Invoice(vector<BuyRegister *> buyRegisters, CompanyModel *companyModel);
     void addRegister(BuyRegister *buyRegister);
     string toString();
-    float getTotalPrice() const { return this->_totalPrice; }
+    float getTotalPrice() { return this->_totalPrice; }
 };
 
 #endif

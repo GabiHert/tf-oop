@@ -7,9 +7,8 @@
 class ApplyDiscountUseCase
 {
 private:
-    ApplyDiscountUseCase();
-
 public:
+    ApplyDiscountUseCase(){};
     static void Execute(vector<BuyRegister *> buyRegisters, int index, vector<DiscountModel *> discountModel);
 };
 

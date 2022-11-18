@@ -16,12 +16,12 @@ private:
 
 public:
     DiscountModel(DiscountDto *discountDto);
-    string getField1() const { return this->_field1; }
-    float getField2() const { return this->_field2; }
-    int getField3() const { return this->_field3; }
-    int getField4() const { return this->_field4; }
-    string getField5() const { return this->_field5; }
-    float getField6() const { return this->_field6; }
+    string getField1() { return this->_field1; }
+    float getField2() { return this->_field2; }
+    int getField3() { return this->_field3; }
+    int getField4() { return this->_field4; }
+    string getField5() { return this->_field5; }
+    float getField6() { return this->_field6; }
 };
 
 #endif

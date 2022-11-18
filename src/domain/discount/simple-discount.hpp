@@ -11,8 +11,8 @@ private:
 
 public:
     SimpleDiscount(DiscountModel *discountModel);
-    string getBarCode() const { return _barCode; }
-    float getDiscount() const { return _discount; }
+    string getBarCode() { return _barCode; }
+    float getDiscount() { return _discount; }
 };
 
 #endif

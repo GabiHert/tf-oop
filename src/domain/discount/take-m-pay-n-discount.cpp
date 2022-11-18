@@ -8,7 +8,8 @@ TakeMPayNDiscount::TakeMPayNDiscount(DiscountModel *discountModel, vector<BuyReg
 
     int i = 0;
     while (buyRegisters[i]->getBarCode() != this->_barCode)
-    {
-        /* code */
-    }
+        i++;
+
+    if (buyRegisters[i]->getAmount() >= this->_amountToBeTook)
+        this->setDiscountValue((buyRegisters[i]->getAmount() - this->_amountToBePaid) * buyRegisters[i]->getUnitPrice());
 }
