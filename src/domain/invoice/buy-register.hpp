@@ -16,18 +16,17 @@ private:
     float _price;
 
 public:
-    BuyRegister();
+    BuyRegister(){};
     BuyRegister(ProductModel *productModel);
-    string getBarCode() const { return this->_barCode; };
-    string getDescription() const { return this->_description; };
-    float getUnitPrice() const { return this->_unitPrice; };
-    string getMeasurementUnit() const { return this->_measurementUnit; };
-    float getAmount() const { return this->_amount; };
+    string getBarCode() { return this->_barCode; };
+    string getDescription() { return this->_description; };
+    float getUnitPrice() { return this->_unitPrice; };
+    string getMeasurementUnit() { return this->_measurementUnit; };
+    float getAmount() { return this->_amount; };
     void addUnit();
     void removeUnit();
-    float getDiscount() const { return this->_discount; }
-    float getPrice() const { return this->_price; };
-
+    float getDiscount() { return this->_discount; }
+    float getPrice() { return this->_price; };
     void addDiscount(float discount);
 };
 

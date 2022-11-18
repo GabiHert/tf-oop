@@ -60,7 +60,6 @@ string Invoice::toString()
 
     invoice.push_back(line);
 
-    // 11
     string spaces = "           ";
     string total = to_string(this->getTotalPrice());
     aux = "TOTAL" + spaces.substr(total.length()) + total;

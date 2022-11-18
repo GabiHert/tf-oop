@@ -16,10 +16,10 @@ private:
 
 public:
     CompanyDto(string name, string cnpj, string stateSub, AddressDto *addressDto);
-    string getName() const { return _name; }
-    string getCnpj() const { return _cnpj; }
-    string getStateSub() const { return _stateSub; }
-    AddressDto *getAddressDto() const { return _addressDto; }
+    string getName() { return _name; }
+    string getCnpj() { return _cnpj; }
+    string getStateSub() { return _stateSub; }
+    AddressDto *getAddressDto() { return _addressDto; }
 };
 
 #endif

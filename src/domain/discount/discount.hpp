@@ -21,11 +21,11 @@ protected:
 
 public:
     Discount(){};
-    float getDiscountValue() const
+    float getDiscountValue()
     {
         return this->_discountValue;
     };
-    string getBarCode() const
+    string getBarCode()
     {
         return this->_barCode;
     }

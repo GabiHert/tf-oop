@@ -1,0 +1,31 @@
+oldrun: build
+	@echo - RUN STARTED
+	./run.exe
+
+build:
+	@echo - BUILD STARTED
+	g++ src/main.cpp src/delivery/handler/invoice-emitter-csv-handler.hpp src/delivery/handler/invoice-emitter-csv-handler.cpp src/controller/invoice-emitter-controller.hpp src/controller/invoice-emitter-controller.cpp src/usecase/apply-discount-use-case.hpp src/usecase/apply-discount-use-case.cpp src/usecase/register-buy-use-case.hpp src/usecase/register-buy-use-case.cpp src/domain/model/address-model.hpp src/domain/model/address-model.cpp src/domain/model/buy-request-model.hpp src/domain/model/buy-request-model.cpp src/domain/model/company-model.hpp src/domain/model/company-model.cpp src/domain/model/discount-model.hpp src/domain/model/product-model.hpp src/domain/model/product-model.cpp src/domain/dto/address-dto.hpp src/domain/dto/address-dto.cpp src/domain/dto/buy-request-dto.hpp src/domain/dto/buy-request-dto.cpp src/domain/dto/company-dto.hpp src/domain/dto/company-dto.cpp src/domain/dto/discount-dto.hpp src/domain/dto/product-dto.hpp src/domain/dto/product-dto.cpp src/domain/discount/combined-discount.hpp src/domain/discount/combined-discount.cpp src/domain/discount/simple-discount.hpp src/domain/discount/simple-discount.cpp src/domain/discount/take-m-pay-n-discount.hpp src/domain/discount/take-m-pay-n-discount.cpp src/domain/factory/discount-factory.hpp src/domain/factory/discount-factory.cpp src/domain/invoice/buy-register.hpp src/domain/invoice/buy-register.cpp src/domain/invoice/invoice.hpp src/domain/invoice/invoice.cpp src/utils/utils.hpp src/utils/utils.cpp -o main.exe
+
+
+CXX		  := g++
+CXX_FLAGS := -Wall -Wextra -std=c++17 -ggdb
+
+SRC		:= src
+INCLUDE	:= include
+LIB		:= lib
+
+LIBRARIES	:=
+EXECUTABLE	:= main
+
+
+all: $(EXECUTABLE)
+
+run: clean all
+	clear
+	./$(BIN)/$(EXECUTABLE)
+
+$(EXECUTABLE): $(SRC)/**/*.cpp
+	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) -L$(LIB) $^ -o $@ $(LIBRARIES)
+
+clean:
+	-rm $(EXECUTABLE)

@@ -20,6 +20,7 @@ private:
     vector<DiscountModel *> _discountsModel;
 
 public:
+    InvoiceEmitterController(){};
     InvoiceEmitterController(CompanyDto *companyDto, vector<ProductDto *> productsDto, vector<BuyRequestDto *> buyRequestsDto, vector<DiscountDto *> discountsDto);
     Invoice *Execute();
 };

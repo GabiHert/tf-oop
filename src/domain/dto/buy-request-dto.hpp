@@ -14,8 +14,8 @@ private:
 public:
     BuyRequestDto();
     BuyRequestDto(string barCode, string amount);
-    string getBarCode() const { return _barCode; }
-    float getAmount() const { return _amount; }
+    string getBarCode() { return _barCode; }
+    float getAmount() { return _amount; }
 };
 
 #endif

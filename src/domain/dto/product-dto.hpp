@@ -15,13 +15,13 @@ private:
     int _unitPrice;
 
 public:
-    ProductDto(string barCode, string description, string sellAmount,string measurementUnit, string amount,string price);
-    string getBarCode() const { return this->_barCode; };
-    string getDescription() const { return this->_description; };
-    string getSellAmount() const { return this->_sellAmount; };
-    string getMeasurementUnit() const { return this->_measurementUnit; };
-    int getAmount() const { return this->_amount; };
-    int getUnitPrice() const { return this->_unitPrice; };
+    ProductDto(string barCode, string description, string sellAmount, string measurementUnit, string amount, string price);
+    string getBarCode() { return this->_barCode; };
+    string getDescription() { return this->_description; };
+    string getSellAmount() { return this->_sellAmount; };
+    string getMeasurementUnit() { return this->_measurementUnit; };
+    int getAmount() { return this->_amount; };
+    int getUnitPrice() { return this->_unitPrice; };
 };
 
 #endif

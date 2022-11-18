@@ -18,23 +18,24 @@ private:
     string _phoneNumber;
 
 public:
+    AddressModel() {}
     AddressModel(AddressDto *addressDto);
 
-    string getPublicPlace() const { return _publicPlace; }
+    string getPublicPlace() { return _publicPlace; }
 
-    string getNumber() const { return _number; }
+    string getNumber() { return _number; }
 
-    string getComplement() const { return _complement; }
+    string getComplement() { return _complement; }
 
-    string getDistrict() const { return _district; }
+    string getDistrict() { return _district; }
 
-    string getCity() const { return _city; }
+    string getCity() { return _city; }
 
-    string getFederationUnit() const { return _federationUnit; }
+    string getFederationUnit() { return _federationUnit; }
 
-    string getCep() const { return _cep; }
+    string getCep() { return _cep; }
 
-    string getPhoneNumber() const { return _phoneNumber; }
+    string getPhoneNumber() { return _phoneNumber; }
 };
 
 #endif

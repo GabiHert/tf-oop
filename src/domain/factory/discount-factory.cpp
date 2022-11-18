@@ -2,13 +2,20 @@
 #include "../discount/combined-discount.hpp"
 #include "../discount/simple-discount.hpp"
 #include "../discount/take-m-pay-n-discount.hpp"
+#include <iostream>
+using namespace std;
 
 Discount *DiscountFactory::GetInstance(DiscountModel *discountModel, vector<BuyRegister *> buyRegisters)
 {
+    cout << "DiscountFactory::GetInstance - Process started" << endl;
+    Discount *discount;
     if (discountModel->getField2())
-        return new SimpleDiscount(discountModel);
+        discount = new SimpleDiscount(discountModel);
     if (discountModel->getField5().length() > 0)
-        return new CombinedDiscount(discountModel, buyRegisters);
+        discount = new CombinedDiscount(discountModel, buyRegisters);
     else
-        return new TakeMPayNDiscount(discountModel);
+        discount = new TakeMPayNDiscount(discountModel, buyRegisters);
+
+    cout << "DiscountFactory::GetInstance - Process finished" << endl;
+    return discount;
 }

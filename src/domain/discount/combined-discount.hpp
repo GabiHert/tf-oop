@@ -17,11 +17,11 @@ private:
 
 public:
     CombinedDiscount(DiscountModel *discountModel, vector<BuyRegister *> buyRegisters);
-    string getBarCodeA() const { return _barCodeA; }
-    int getAmountToBeTook() const { return _amountToBeTook; }
-    int getAmountToBeApplied() const { return _amountToBeApplied; }
-    string getBarCodeB() const { return _barCodeB; }
-    int getDiscountPercentage() const { return _discountPercentage; }
+    string getBarCodeA() { return _barCodeA; }
+    int getAmountToBeTook() { return _amountToBeTook; }
+    int getAmountToBeApplied() { return _amountToBeApplied; }
+    string getBarCodeB() { return _barCodeB; }
+    int getDiscountPercentage() { return _discountPercentage; }
 };
 
 #endif
