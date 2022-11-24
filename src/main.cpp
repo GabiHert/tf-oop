@@ -1,11 +1,10 @@
 
-#include "delivery/handler/invoice-emitter-csv-handler.hpp"
-#include <string>
-using namespace std;
+#include "invoice-emitter-csv-handler.hpp"
+#include <cstdio>
+#include <iostream>
 int main()
 {
-
-    InvoiceEmitterCsv invoiceEmitterCsv = InvoiceEmitterCsv();
-    string t = " ";
-    invoiceEmitterCsv.execute(t, t, t, t);
-};
+    freopen("debug.txt", "w", stdout);
+    InvoiceEmitterCsv::Execute("data/compras.csv", "data/empresa.csv", "data/produtos.csv", "data/desconto.csv");
+    return 0;
+}
